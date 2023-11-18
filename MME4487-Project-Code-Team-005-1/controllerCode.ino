@@ -32,7 +32,7 @@ struct ControlDataPacket {
 // Drive data packet structure
 struct DriveDataPacket {
   unsigned long time;                                 // time packet sent
-  boolean detected;
+  boolean detected;                                   // check if desired colour is detected
 };
 
 // Constants
@@ -148,11 +148,10 @@ void loop() {
     else {                                            // otherwise
       digitalWrite(cStatusLED, 1);                    // turn on communication status LED
     }
-
-    if (inData.detected == true){
-      digitalWrite(cLED1Pin, 1);
+    if (inData.detected == true){                     // if we detected the colour desired
+      digitalWrite(cLED1Pin, 1);                      // turn on LED
     }else{
-      digitalWrite(cLED1Pin, 0);
+      digitalWrite(cLED1Pin, 0);                      // otherwise, LED is off
     }
   }
   doHeartbeat();                                      // update heartbeat LED
