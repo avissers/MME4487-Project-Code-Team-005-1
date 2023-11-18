@@ -70,13 +70,13 @@ void setup() {
   pinMode(cHeartbeatLED, OUTPUT);                                        // configure built-in LED for heartbeat as output
   pinMode(cStatusLED, OUTPUT);                                           // configure GPIO for communication status LED as output
   pinMode(forwardButton.pin, INPUT_PULLUP);                              // cconfigure forward button as input with pullup res
-  attachInterruptArg(forwardButton.pin, buttonISR, &buttonFwd, CHANGE);  // configure forward button ISR to trigger on change
+  attachInterruptArg(forwardButton.pin, buttonISR, &forwardButton, CHANGE);  // configure forward button ISR to trigger on change
   pinMode(reverseButton.pin, INPUT_PULLUP);                              // configure reverse button as input with pullup res
-  attachInterruptArg(reverseButton.pin, buttonISR, &buttonRev, CHANGE);  // configure reverse button ISR to trigger on change
+  attachInterruptArg(reverseButton.pin, buttonISR, &reverseButton, CHANGE);  // configure reverse button ISR to trigger on change
   pinMode(leftButton.pin, INPUT_PULLUP);                                 // configure left button as input with pullup res
-  attachInterruptArg(leftButton.pin, buttonISR, &buttonLeft, CHANGE);    // configure left button ISR to trigger on change
+  attachInterruptArg(leftButton.pin, buttonISR, &leftButton, CHANGE);    // configure left button ISR to trigger on change
   pinMode(rightButton.pin, INPUT_PULLUP);                                // configure right button as input with pullup res
-  attachInterruptArg(rightButton.pin, buttonISR, &buttonRight, CHANGE);  // configure right button ISR to trigger on change
+  attachInterruptArg(rightButton.pin, buttonISR, &rightButton, CHANGE);  // configure right button ISR to trigger on change
   pinMode(cLED1Pin, OUTPUT);                                             // configure LED for output
   pinMode(cPotPin, INPUT);                                               // set up potentiometer for input
 
